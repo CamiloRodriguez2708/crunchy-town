@@ -6,28 +6,24 @@ public class Usuario extends Cuenta {
 
     public Usuario(String id, String nombre, String contrasena, String correo) {
         super(id, nombre);
-        if (!verificar(new String[]{correo, contrasena})) {
+        if (!verificar(correo, contrasena)) {
             throw new IllegalArgumentException("Correo o contraseña inválidos");
         }
         this.contrasena = contrasena;
         this.correo = correo;
     }
 
-    @Override
-    public boolean iniciarSesion(String... credenciales) {
-        if (!verificar(credenciales)) {
-            return false;
-        }
-        return correo.equals(credenciales[0]) && contrasena.equals(credenciales[1]);
+    public boolean verificar(String correo, String contrasena) {
+        Verificable<String> correoValido = c -> c != null && c.contains("@");
+        Verificable<String> claveValida = p -> p != null && !p.isBlank();
+        return  correoValido.verificar(correo) && claveValida.verificar(contrasena);
     }
 
     @Override
-    public boolean verificar(String[] elemento) {
-        if (elemento.length != 2){
+    public boolean iniciarSesion(String correo, String contrasena) {
+        if (!verificar(correo, contrasena)) {
             return false;
         }
-        Verificable<String> correoValido = c -> c != null && c.contains("@");
-        Verificable<String> claveValida = p -> p != null && !p.isBlank();
-        return  correoValido.verificar(elemento[0]) && claveValida.verificar(elemento[1]);
+        return this.correo.equals(correo) && this.contrasena.equals(contrasena);
     }
 }

@@ -23,20 +23,13 @@ public class CuentaService {
         cuentas.add(cuenta);
     }
 
-    // Devuelve la cuenta, o null si no existe
-    public Cuenta buscarPorId(String id) {
-        for (Cuenta c : cuentas) {
-            if (c.getId().equals(id)) {
-                return c;
-            }
-        }
-        return null;
+    public void actualizarLista(List<Cuenta> cuentas){
+        cuentas.addAll(cuentas);
     }
 
-
-    public boolean login(String... credenciales) {
+    public boolean login(String factor1, String factor2) {
         for (Cuenta c : cuentas) {
-            if (c.iniciarSesion(credenciales)) {
+            if (c.iniciarSesion(factor1, factor2)) {
                 Sesion.getInstancia().iniciar(c);
                 return true;
             }

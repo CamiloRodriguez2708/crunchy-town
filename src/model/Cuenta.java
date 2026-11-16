@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Cuenta implements Verificable<String[]> {
+public abstract class Cuenta {
     private final String id;
     private final String nombre;
 
@@ -21,5 +21,5 @@ public abstract class Cuenta implements Verificable<String[]> {
         return nombre;
     }
 
-    public abstract boolean iniciarSesion(String... credenciales);
+    public abstract boolean iniciarSesion(String factor1, String factor2);
 }

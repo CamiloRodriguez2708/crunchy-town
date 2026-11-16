@@ -5,6 +5,14 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.Cuenta;
+import model.Usuario;
+import persistence.CuentaRepository;
+import service.CuentaService;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
     @Override
@@ -17,6 +25,13 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        CuentaRepository repository = new CuentaRepository();
+        CuentaService cuentas = new CuentaService();
+        cuentas.actualizarLista(repository.cargar());
+        cuentas.agregar(new Usuario("12", "camilo", "hola", "camilo@gmail" ));
+        repository.guardar(cuentas.getCuentas());
         launch(args);
+
+
     }
 }
