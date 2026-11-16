@@ -23,8 +23,8 @@ public class CuentaService {
         cuentas.add(cuenta);
     }
 
-    public void actualizarLista(List<Cuenta> cuentas){
-        cuentas.addAll(cuentas);
+    public void actualizarLista(List<Cuenta> cuentasP){
+        this.cuentas.addAll(cuentasP);
     }
 
     public boolean login(String factor1, String factor2) {
