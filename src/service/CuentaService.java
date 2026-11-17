@@ -19,11 +19,25 @@ public class CuentaService {
         return String.valueOf(mayor + 1);
     }
 
-    public void agregar(Cuenta cuenta) {
-        cuentas.add(cuenta);
+    public boolean existeCorreo(String correo) {
+        for (Cuenta c : cuentas) {
+            if (c.getCorreo().equals(correo)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void actualizarLista(List<Cuenta> cuentasP){
+    // Devuelve false si el correo ya está registrado
+    public boolean agregar(Cuenta cuenta) {
+        if (existeCorreo(cuenta.getCorreo())) {
+            return false;
+        }
+        cuentas.add(cuenta);
+        return true;
+    }
+
+    public void actualizarLista(List<Cuenta> cuentasP) {
         this.cuentas.addAll(cuentasP);
     }
 

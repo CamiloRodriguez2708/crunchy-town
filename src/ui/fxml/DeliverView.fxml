@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #fff8f0;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.DeliverViewController">
+   <top>
+      <AnchorPane prefHeight="76.0" prefWidth="1080.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" layoutX="440.0" layoutY="-1.0" prefHeight="89.0" prefWidth="200.0" spacing="30.0">
+               <children>
+                  <Text fill="#d02626" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio">
+                     <font>
+                        <Font name="Carlito Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menú">
+                     <font>
+                        <Font name="Carlito Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos">
+                     <font>
+                        <Font name="Carlito Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="282.0" fitWidth="574.0" layoutX="253.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../utils/Imagen_pegada__2_-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="405.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BIENVENIDO A">
+               <font>
+                  <Font name="Carlito Bold" size="44.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtBienvenida" layoutX="288.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimado usuario [Nombre]">
+               <font>
+                  <Font name="Carlito Bold" size="44.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

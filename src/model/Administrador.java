@@ -1,29 +1,38 @@
 package model;
 
 public class Administrador extends Cuenta {
-    private final String token;
 
-    public Administrador(String id, String nombre, String token) {
-        super(id, nombre);
-        if (!verificar(token)){
-            throw new IllegalArgumentException("Token inválido");
-        }
-        this.token = token;
+    public Administrador(String id, String nombre, String correo, String contrasena) {
+        super(id, nombre, correo, contrasena);
     }
 
-    // Orden de los datos: [0] token
-
-    public boolean verificar(String token) {
-        Verificable<String> tokenValido = t -> t != null && !t.isBlank();
-        return tokenValido.verificar(token);
-    }
-
-    // Orden de las credenciales: [0] token
     @Override
-    public boolean iniciarSesion(String id, String token) {
-        if (!verificar(token)) {
-            return false;
-        }
-        return this.getId().equals(id) && this.token.equals(token);
+    public String getRol() {
+        return "Administrador";
     }
+
+    public void aceptarPedido() {
+        throw new UnsupportedOperationException("Pendiente: depende de Pedido");
+    }
+
+    public void denegarPedido() {
+        throw new UnsupportedOperationException("Pendiente: depende de Pedido");
+    }
+
+    public void agregarProducto() {
+        throw new UnsupportedOperationException("Pendiente: depende de Comida");
+    }
+
+    public void quitarProducto() {
+        throw new UnsupportedOperationException("Pendiente: depende de Comida");
+    }
+
+    public void agregarCombo() {
+        throw new UnsupportedOperationException("Pendiente: depende de los combos");
+    }
+
+    public void quitarCombo() {
+        throw new UnsupportedOperationException("Pendiente: depende de los combos");
+    }
+
 }

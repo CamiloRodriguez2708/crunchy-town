@@ -1,37 +1,46 @@
 package main;
 
-import com.google.gson.Gson;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import model.Cuenta;
-import model.Usuario;
 import persistence.CuentaRepository;
 import service.CuentaService;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 public class Main extends Application {
+    private static Stage ventana;
+    private static CuentaService cuentaService;
+
     @Override
     public void start(Stage stage) {
-        String json = new Gson().toJson("Gson funciona!");
-        System.out.println(json);
-        stage.setScene(new Scene(new Label("Crunchy Town funciona!"), 300, 150));
+        ventana = stage;
         stage.setTitle("Crunchy Town");
+        stage.setResizable(false);
+        cambiarPantalla("/ui/fxml/Login.fxml");
         stage.show();
+    }
+
+    public static void cambiarPantalla(String ruta) {
+        try {
+            Parent raiz = FXMLLoader.load(Main.class.getResource(ruta));
+            ventana.setScene(new Scene(raiz));
+        } catch (IOException e) {
+            System.out.println("No se pudo abrir " + ruta);
+            e.printStackTrace();
+        }
+    }
+
+    public static CuentaService getCuentaService() {
+        return cuentaService;
     }
 
     public static void main(String[] args) {
         CuentaRepository repository = new CuentaRepository();
-        CuentaService cuentas = new CuentaService();
-        cuentas.actualizarLista(repository.cargar());
-        cuentas.agregar(new Usuario("12", "camilo", "hola", "camilo@gmail" ));
-        repository.guardar(cuentas.getCuentas());
+        cuentaService = new CuentaService();
+        cuentaService.actualizarLista(repository.cargar());
         launch(args);
-
-
     }
 }
