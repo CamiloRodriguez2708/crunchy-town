@@ -1,0 +1,26 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Camilo",
+      "correo": "Camilo@",
+      "contrasena": "123"
+    }
+  ],
+  "administradores": [
+    {
+      "id": "0",
+      "nombre": "admin",
+      "correo": "admin@correo.com",
+      "contrasena": "admin123"
+    }
+  ],
+  "repartidores": [
+    {
+      "id": "2",
+      "nombre": "Carlos",
+      "correo": "Carlos@",
+      "contrasena": "123"
+    }
+  ]
+}
