@@ -1,26 +1,38 @@
 package ui.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import main.Main;
-import model.Cuenta;
-import model.Repartidor;
-import model.Usuario;
-import model.Verificable;
 import javafx.scene.text.Text;
-import persistence.CuentaRepository;
-import service.CuentaService;
+import main.Main;
+import model.Producto;
 import service.Sesion;
-import utils.Alertas;
+
+import java.util.List;
 
 public class UserViewController {
-    @FXML private Text txtBienvenida;
-
+    @FXML private Text txtProductos;
 
     @FXML
     public void initialize() {
-        txtBienvenida.setText("Bienvenido estimado Usuario " + Sesion.getInstancia().getCuentaActual().getNombre());
+        mostrarMenu();
     }
+
+    private void mostrarMenu() {
+        List<Producto> menu = Main.getMenuService().getMenu();
+        if (menu.isEmpty()) {
+            txtProductos.setText("Aún no hay productos en el menú");
+            return;
+        }
+
+        String texto = "";
+        for (Producto p : menu) {
+            texto += "[" + p.getTipo() + "] " + p + "\n";
+        }
+        txtProductos.setText(texto);
     }
+
+    @FXML
+    private void irAInicioSesion() {
+        Sesion.getInstancia().cerrar();
+        Main.cambiarPantalla("/ui/fxml/Login.fxml");
+    }
+}

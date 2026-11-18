@@ -1,6 +1,5 @@
 package service;
 
-import model.Administrador;
 import model.Producto;
 import persistence.ProductoRepository;
 
@@ -16,6 +15,7 @@ public class MenuService {
         return new ArrayList<>(menu);
     }
 
+    // Devuelve el producto, o null si no existe
     public Producto buscarPorNombre(String nombre) {
         for (Producto p : menu) {
             if (p.getNombre().equalsIgnoreCase(nombre)) {
@@ -25,29 +25,16 @@ public class MenuService {
         return null;
     }
 
-    public boolean esAdministrador() {
-        Sesion sesion = Sesion.getInstancia();
-        return sesion.haySesion() && sesion.getCuentaActual() instanceof Administrador;
-    }
-
-    public void agregarProducto(Producto producto) {
-        verificarAdministrador();
+    public void agregar(Producto producto) {
         menu.add(producto);
         repositorio.guardar(menu);
     }
 
-    public boolean eliminarProducto(Producto producto) {
-        verificarAdministrador();
+    public boolean eliminar(Producto producto) {
         boolean eliminado = menu.removeIf(p -> p == producto);
         if (eliminado) {
             repositorio.guardar(menu);
         }
         return eliminado;
-    }
-
-    private void verificarAdministrador() {
-        if (!esAdministrador()) {
-            throw new IllegalStateException("Solo el administrador puede modificar el menú");
-        }
     }
 }

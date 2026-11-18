@@ -1,5 +1,7 @@
 package model;
 
+import service.MenuService;
+
 public class Administrador extends Cuenta {
 
     public Administrador(String id, String nombre, String correo, String contrasena) {
@@ -19,20 +21,11 @@ public class Administrador extends Cuenta {
         throw new UnsupportedOperationException("Pendiente: depende de Pedido");
     }
 
-    public void agregarProducto() {
-        throw new UnsupportedOperationException("Pendiente: depende de Comida");
+    public void agregarProducto(MenuService menu, Producto producto) {
+        menu.agregar(producto);
     }
 
-    public void quitarProducto() {
-        throw new UnsupportedOperationException("Pendiente: depende de Comida");
+    public boolean quitarProducto(MenuService menu, Producto producto) {
+        return menu.eliminar(producto);
     }
-
-    public void agregarCombo() {
-        throw new UnsupportedOperationException("Pendiente: depende de los combos");
-    }
-
-    public void quitarCombo() {
-        throw new UnsupportedOperationException("Pendiente: depende de los combos");
-    }
-
 }

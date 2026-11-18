@@ -7,12 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import persistence.CuentaRepository;
 import service.CuentaService;
+import service.MenuService;
 
 import java.io.IOException;
 
 public class Main extends Application {
     private static Stage ventana;
     private static CuentaService cuentaService;
+    private static MenuService menuService;
+
 
     @Override
     public void start(Stage stage) {
@@ -37,10 +40,15 @@ public class Main extends Application {
         return cuentaService;
     }
 
+    public static MenuService getMenuService() {
+        return menuService;
+    }
+
     public static void main(String[] args) {
         CuentaRepository repository = new CuentaRepository();
         cuentaService = new CuentaService();
         cuentaService.actualizarLista(repository.cargar());
+        menuService = new MenuService();
         launch(args);
     }
 }
