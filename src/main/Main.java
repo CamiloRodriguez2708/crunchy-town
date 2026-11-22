@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import persistence.CuentaRepository;
 import service.CuentaService;
 import service.MenuService;
+import service.PedidoService;
 
 import java.io.IOException;
 
@@ -15,7 +16,7 @@ public class Main extends Application {
     private static Stage ventana;
     private static CuentaService cuentaService;
     private static MenuService menuService;
-
+    private static PedidoService pedidoService;
 
     @Override
     public void start(Stage stage) {
@@ -44,11 +45,16 @@ public class Main extends Application {
         return menuService;
     }
 
+    public static PedidoService getPedidoService() {
+        return pedidoService;
+    }
+
     public static void main(String[] args) {
         CuentaRepository repository = new CuentaRepository();
         cuentaService = new CuentaService();
         cuentaService.actualizarLista(repository.cargar());
         menuService = new MenuService();
+        pedidoService = new PedidoService();
         launch(args);
     }
 }

@@ -1,0 +1,102 @@
+{
+  "comidas": [
+    {
+      "nombre": "Hamburguesa de aleta de tiburon (plato de prueba)",
+      "descripcion": "Un plato como un Hmaburguesa normal pero en vez de carne lleva una aleta de tiburon blaco asada",
+      "precio": 140000.0
+    },
+    {
+      "nombre": "Hamburguesa clásica",
+      "descripcion": "Carne de res de 150 g, queso cheddar, lechuga, tomate y salsa de la casa.",
+      "precio": 22000.0
+    },
+    {
+      "nombre": "Hamburguesa doble queso",
+      "descripcion": "Dos carnes de res, doble queso cheddar, cebolla caramelizada y salsa BBQ.",
+      "precio": 29000.0
+    },
+    {
+      "nombre": "Hamburguesa de pollo crispy",
+      "descripcion": "Pechuga de pollo empanizada, lechuga, tomate y mayonesa de ajo.",
+      "precio": 24000.0
+    },
+    {
+      "nombre": "Alitas BBQ",
+      "descripcion": "Ocho alitas de pollo bañadas en salsa BBQ con dip de ranch.",
+      "precio": 27000.0
+    },
+    {
+      "nombre": "Nuggets de pollo",
+      "descripcion": "Diez nuggets de pollo acompañados de salsa de miel y mostaza.",
+      "precio": 19000.0
+    },
+    {
+      "nombre": "Perro caliente especial",
+      "descripcion": "Salchicha de res, queso, cebolla crispy, papas ripio y salsas.",
+      "precio": 16000.0
+    },
+    {
+      "nombre": "Sándwich de pollo",
+      "descripcion": "Pan artesanal, pollo crispy, lechuga, tomate y salsa ranch.",
+      "precio": 21000.0
+    }
+  ],
+  "bebidas": [
+    {
+      "nombre": "Coca-Cola 400 ml",
+      "descripcion": "Bebida gaseosa bien fría.",
+      "precio": 6000.0
+    },
+    {
+      "nombre": "Jugo de lulo",
+      "descripcion": "Jugo natural de lulo preparado en agua.",
+      "precio": 8000.0
+    },
+    {
+      "nombre": "Limonada natural",
+      "descripcion": "Limonada fresca endulzada al gusto.",
+      "precio": 7000.0
+    },
+    {
+      "nombre": "Agua sin gas 600 ml",
+      "descripcion": "Botella de agua fría.",
+      "precio": 4000.0
+    },
+    {
+      "nombre": "Malteada de chocolate",
+      "descripcion": "Malteada cremosa de chocolate con crema batida.",
+      "precio": 12000.0
+    },
+    {
+      "nombre": "Té frío de durazno",
+      "descripcion": "Té frío de durazno bien helado.",
+      "precio": 6500.0
+    }
+  ],
+  "acompanamientos": [
+    {
+      "nombre": "Papas fritas",
+      "descripcion": "Porción de papas a la francesa.",
+      "precio": 8000.0,
+      "unidades": 1
+    },
+    {
+      "nombre": "Aros de cebolla",
+      "descripcion": "Seis aros de cebolla empanizados.",
+      "precio": 10000.0,
+      "unidades": 6
+    },
+    {
+      "nombre": "Nuggets extra",
+      "descripcion": "Cinco nuggets adicionales de pollo.",
+      "precio": 12000.0,
+      "unidades": 5
+    },
+    {
+      "nombre": "Ensalada de la casa",
+      "descripcion": "Lechuga, tomate, zanahoria y aderezo de la casa.",
+      "precio": 9000.0,
+      "unidades": 1
+    }
+  ]
+}

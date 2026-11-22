@@ -6,24 +6,27 @@ import factory.ComidaFactory;
 import factory.ProductoFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import main.Main;
-import model.Administrador;
-import model.Cuenta;
-import model.Producto;
+import model.*;
 import service.Sesion;
 import utils.Alertas;
+import utils.Formato;
 
 public class AdministratorViewController {
-    @FXML private Text txtBienvenida;
     @FXML private Text labUnidades;
     @FXML private ComboBox<String> cbTipo;
     @FXML private TextField txtNombre;
     @FXML private TextField txtPrecio;
     @FXML private TextField txtUnidades;
     @FXML private TextArea txtDescripcion;
+    @FXML private Label lbNombre;
+    @FXML private Label lbDescripcion;
+    @FXML private Label lbPrecio;
+    @FXML private Label lbIcono;
 
     @FXML
     public void initialize() {
@@ -38,6 +41,15 @@ public class AdministratorViewController {
         boolean esAcompanamiento = "Acompañamiento".equals(cbTipo.getValue());
         labUnidades.setVisible(esAcompanamiento);
         txtUnidades.setVisible(esAcompanamiento);
+        if (cbTipo.getSelectionModel().getSelectedItem().toString().equals("Comida")) {
+            lbIcono.setText("\uEA61"); // lunch_dining (hamburguesa)
+        }
+        else if (cbTipo.getSelectionModel().getSelectedItem().toString().equals("Bebida")) {
+            lbIcono.setText("\uE544"); // local_drink (bebida)
+        }
+        else {
+            lbIcono.setText("\uF1E9"); // tapas (acompañamiento)
+        }
     }
 
     @FXML
@@ -61,7 +73,7 @@ public class AdministratorViewController {
             return;
         }
 
-        // Factory Method: se elige la fábrica y desde ahí el código no sabe cuál es
+        // Factory Method: se elige la fábrica
         ProductoFactory fabrica;
         if (tipo.equals("Comida")) {
             fabrica = new ComidaFactory();
@@ -101,8 +113,21 @@ public class AdministratorViewController {
     }
 
     @FXML
+    private void actualizarInfo() {
+        Formato moneda = valor -> String.format("$%,.0f", valor);
+        lbDescripcion.setText(txtDescripcion.getText());
+        lbNombre.setText(txtNombre.getText());
+        lbPrecio.setText(moneda.formatear(Double.parseDouble(txtPrecio.getText())));
+    }
+
+    @FXML
     private void irAInicioSesion() {
         Sesion.getInstancia().cerrar();
         Main.cambiarPantalla("/ui/fxml/Login.fxml");
+    }
+
+    @FXML
+    private void volverAlMenu() {
+        Main.cambiarPantalla("/ui/fxml/AdministratorMenuView.fxml");
     }
 }

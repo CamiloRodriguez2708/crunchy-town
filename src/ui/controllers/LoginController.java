@@ -32,7 +32,7 @@ public class LoginController {
                 Main.cambiarPantalla("/ui/fxml/UserView.fxml");
             }
             else if (cuenta.getRol().equals("Administrador")){
-                Main.cambiarPantalla("/ui/fxml/AdministratorView.fxml");
+                Main.cambiarPantalla("/ui/fxml/AdministratorMenuView.fxml");
             }
             else {
                 Main.cambiarPantalla("/ui/fxml/DeliverView.fxml");

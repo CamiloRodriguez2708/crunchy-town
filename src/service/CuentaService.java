@@ -4,6 +4,7 @@ import model.Cuenta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class CuentaService {
     private final List<Cuenta> cuentas = new ArrayList<>();
@@ -19,13 +20,18 @@ public class CuentaService {
         return String.valueOf(mayor + 1);
     }
 
-    public boolean existeCorreo(String correo) {
+    // Búsqueda: devuelve la primera cuenta que cumple la condición, o null si ninguna
+    public Cuenta buscar(Predicate<Cuenta> condicion) {
         for (Cuenta c : cuentas) {
-            if (c.getCorreo().equals(correo)) {
-                return true;
+            if (condicion.test(c)) {
+                return c;
             }
         }
-        return false;
+        return null;
+    }
+
+    public boolean existeCorreo(String correo) {
+        return buscar(c -> c.getCorreo().equals(correo)) != null;
     }
 
     // Devuelve false si el correo ya está registrado
@@ -41,14 +47,13 @@ public class CuentaService {
         this.cuentas.addAll(cuentasP);
     }
 
-    public boolean login(String factor1, String factor2) {
-        for (Cuenta c : cuentas) {
-            if (c.iniciarSesion(factor1, factor2)) {
-                Sesion.getInstancia().iniciar(c);
-                return true;
-            }
+    public boolean login(String correo, String contrasena) {
+        Cuenta cuenta = buscar(c -> c.iniciarSesion(correo, contrasena));
+        if (cuenta == null) {
+            return false;
         }
-        return false;
+        Sesion.getInstancia().iniciar(cuenta);
+        return true;
     }
 
     public List<Cuenta> getCuentas() {

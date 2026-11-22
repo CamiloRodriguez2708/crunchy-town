@@ -5,6 +5,12 @@
       "nombre": "Camilo",
       "correo": "Camilo@",
       "contrasena": "123"
+    },
+    {
+      "id": "3",
+      "nombre": "camilo",
+      "correo": "hola@",
+      "contrasena": "123"
     }
   ],
   "administradores": [

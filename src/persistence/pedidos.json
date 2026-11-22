@@ -1,0 +1,36 @@
+{
+  "pedidos": [
+    {
+      "id": "b8bb89ed-f23d-4cd7-815f-cdc2d61ac21b",
+      "usuarioId": "3",
+      "estado": "PENDIENTE",
+      "metodoPago": "Nequi",
+      "productos": [
+        {
+          "nombreProducto": "Hamburguesa de aleta de tiburon (plato de prueba)",
+          "tipoProducto": "Comida",
+          "precioUnitario": 140000.0,
+          "cantidad": 1,
+          "subtotal": 140000.0
+        }
+      ],
+      "precioTotal": 140000.0
+    },
+    {
+      "id": "f3919691-d32a-432b-bf9a-4de31ff2cb71",
+      "usuarioId": "1",
+      "estado": "PENDIENTE",
+      "metodoPago": "Nequi",
+      "productos": [
+        {
+          "nombreProducto": "Hamburguesa de aleta de tiburon (plato de prueba)",
+          "tipoProducto": "Comida",
+          "precioUnitario": 140000.0,
+          "cantidad": 1,
+          "subtotal": 140000.0
+        }
+      ],
+      "precioTotal": 140000.0
+    }
+  ]
+}

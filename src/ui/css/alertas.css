@@ -1,0 +1,46 @@
+.dialog-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-padding: 18 22 16 22;
+}
+
+.dialog-pane .button-bar .container {
+    -fx-padding: 14 0 0 0;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #d62828;
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+    -fx-font-family: 'Carlito';
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 9 28 9 28;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #b51f1f;
+}
+
+.alerta-info .button {
+    -fx-background-color: #ffbf47;
+    -fx-text-fill: #30211e;
+}
+
+.alerta-info .button:hover {
+    -fx-background-color: #f0ab2e;
+}
+
+.alerta-titulo {
+    -fx-font-family: 'Carlito';
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #30211e;
+}
+
+.alerta-mensaje {
+    -fx-font-family: 'Carlito';
+    -fx-font-size: 13px;
+    -fx-text-fill: #715e57;
+}
