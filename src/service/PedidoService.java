@@ -10,12 +10,13 @@ import strategy.MetodoPagoStrategy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 public class PedidoService {
     private final PedidoRepository repositorio = new PedidoRepository();
     private final List<Pedido> pedidos = repositorio.cargar();
 
-    public Pedido crearPedido(Usuario usuario, CarritoService carrito, MetodoPagoStrategy metodoPago) {
+    public Pedido crearPedido(Usuario usuario, CarritoService carrito, MetodoPagoStrategy metodoPago, String dirrecion) {
         if (usuario == null) {
             throw new IllegalArgumentException("Debes iniciar sesión para hacer un pedido");
         }
@@ -45,7 +46,8 @@ public class PedidoService {
                 "PENDIENTE",
                 metodoPago.getNombre(),
                 productos,
-                total
+                total,
+                dirrecion
         );
         pedidos.add(pedido);
         repositorio.guardar(pedidos);
@@ -54,5 +56,16 @@ public class PedidoService {
 
     public List<Pedido> getPedidos() {
         return new ArrayList<>(pedidos);
+    }
+
+    public List<Pedido> filtrar(Predicate<Pedido> condicion) {
+        List<Pedido> resultado = new ArrayList<>(pedidos);
+        resultado.removeIf(p -> !condicion.test(p));
+        return resultado;
+    }
+
+    // Guarda en el JSON los cambios hechos a los pedidos (por ejemplo, un cambio de estado)
+    public void guardar() {
+        repositorio.guardar(pedidos);
     }
 }

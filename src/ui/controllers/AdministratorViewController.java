@@ -9,12 +9,16 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import main.Main;
 import model.*;
 import service.Sesion;
 import utils.Alertas;
 import utils.Formato;
+
+import java.io.IOException;
 
 public class AdministratorViewController {
     @FXML private Text labUnidades;
@@ -26,7 +30,7 @@ public class AdministratorViewController {
     @FXML private Label lbNombre;
     @FXML private Label lbDescripcion;
     @FXML private Label lbPrecio;
-    @FXML private Label lbIcono;
+    @FXML private ImageView icono;
 
     @FXML
     public void initialize() {
@@ -39,17 +43,20 @@ public class AdministratorViewController {
     @FXML
     private void cambiarTipo() {
         boolean esAcompanamiento = "Acompañamiento".equals(cbTipo.getValue());
+        Image image;
         labUnidades.setVisible(esAcompanamiento);
         txtUnidades.setVisible(esAcompanamiento);
-        if (cbTipo.getSelectionModel().getSelectedItem().toString().equals("Comida")) {
-            lbIcono.setText("\uEA61"); // lunch_dining (hamburguesa)
+        icono.setImage(iconoDe());
+    }
+    private Image iconoDe() {
+        Image imagen;
+        if (cbTipo.getSelectionModel().getSelectedItem().toString().equals("Comida"))  {
+            return imagen = new Image(getClass().getResourceAsStream("/utils/imagenes/Comida.png"));
         }
-        else if (cbTipo.getSelectionModel().getSelectedItem().toString().equals("Bebida")) {
-            lbIcono.setText("\uE544"); // local_drink (bebida)
+        if (cbTipo.getSelectionModel().getSelectedItem().toString().equals("Bebida")) {
+            return imagen = new Image(getClass().getResourceAsStream("/utils/imagenes/Bebida.png"));
         }
-        else {
-            lbIcono.setText("\uF1E9"); // tapas (acompañamiento)
-        }
+        return imagen = new Image(getClass().getResourceAsStream("/utils/imagenes/Acompanamiento.png"));
     }
 
     @FXML
@@ -117,7 +124,11 @@ public class AdministratorViewController {
         Formato moneda = valor -> String.format("$%,.0f", valor);
         lbDescripcion.setText(txtDescripcion.getText());
         lbNombre.setText(txtNombre.getText());
-        lbPrecio.setText(moneda.formatear(Double.parseDouble(txtPrecio.getText())));
+        try {
+            lbPrecio.setText(moneda.formatear(Double.parseDouble(txtPrecio.getText().trim())));
+        } catch (NumberFormatException e) {
+            lbPrecio.setText(moneda.formatear(0));
+        }
     }
 
     @FXML

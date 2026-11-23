@@ -27,7 +27,7 @@
                         <Font name="Carlito Bold" size="20.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos">
+                  <Text onMouseClicked="#irAPedidos" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos">
                      <font>
                         <Font name="Carlito Bold" size="20.0" />
                      </font>
@@ -39,7 +39,7 @@
             </HBox>
             <ImageView fitHeight="77.0" fitWidth="409.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../utils/Imagen_pegada__2_-removebg-preview.png" />
+                  <Image url="@../../utils/imagenes/Imagen_pegada__2_-removebg-preview.png" />
                </image>
             </ImageView>
             <Button layoutX="868.0" layoutY="26.0" mnemonicParsing="false" onAction="#irAInicioSesion" prefHeight="35.0" prefWidth="148.0" style="-fx-background-radius: 15; -fx-background-color: #d62828;" text="Cerrar Sesión" textFill="#fff8f0" />

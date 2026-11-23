@@ -49,6 +49,11 @@ public class MenuService {
         repositorio.guardar(menu);
     }
 
+    // Guarda en el JSON los cambios hechos a un producto (por ejemplo, al editarlo)
+    public void guardar() {
+        repositorio.guardar(menu);
+    }
+
     public boolean eliminar(Producto producto) {
         boolean eliminado = menu.removeIf(p -> p == producto);
         if (eliminado) {

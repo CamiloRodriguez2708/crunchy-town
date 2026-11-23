@@ -18,10 +18,10 @@ public class LoginController {
         String correo = txtCorreo.getText().trim();
         String contrasena = txtContrasena.getText();
 
-        Verificable<String> correoValido = elemento -> elemento.isEmpty() && !elemento.contains("@");
-        Verificable<String> contrasenaValida = elemento -> elemento.isEmpty();
+        Verificable<String> correoInvalido = elemento -> elemento.isEmpty() && !elemento.contains("@");
+        Verificable<String> contrasenaInvalida = elemento -> elemento.isEmpty();
 
-        if (correoValido.verificar(correo) || contrasenaValida.verificar(contrasena)) {
+        if (correoInvalido.verificar(correo) || contrasenaInvalida.verificar(contrasena)) {
             Alertas.error("Completa el correo y la contraseña");
             return;
         }

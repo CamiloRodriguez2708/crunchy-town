@@ -1,36 +1,171 @@
 {
   "pedidos": [
     {
-      "id": "b8bb89ed-f23d-4cd7-815f-cdc2d61ac21b",
+      "id": "1a7e4c93-6d2b-4f18-9c55-0b1e2d3f4a01",
+      "usuarioId": "1",
+      "estado": "ENTREGADO",
+      "metodoPago": "Nequi",
+      "productos": [
+        {
+          "nombreProducto": "Limonada natural",
+          "tipoProducto": "Bebida",
+          "precioUnitario": 7000.0,
+          "cantidad": 2,
+          "subtotal": 14000.0
+        },
+        {
+          "nombreProducto": "Hamburguesa clásica",
+          "tipoProducto": "Comida",
+          "precioUnitario": 22000.0,
+          "cantidad": 1,
+          "subtotal": 22000.0
+        }
+      ],
+      "precioTotal": 36000.0,
+      "dirreccion": "Cra 14 #6-04, Bogotá",
+      "idRepartidor": "2"
+    },
+    {
+      "id": "2b8f5d04-7e3c-4a29-8d66-1c2f3e4a5b02",
+      "usuarioId": "3",
+      "estado": "DENEGADO",
+      "metodoPago": "Efectivo",
+      "productos": [
+        {
+          "nombreProducto": "Papas fritas",
+          "tipoProducto": "Acompañamiento",
+          "precioUnitario": 8000.0,
+          "cantidad": 1,
+          "subtotal": 8000.0
+        },
+        {
+          "nombreProducto": "Perro caliente especial",
+          "tipoProducto": "Comida",
+          "precioUnitario": 16000.0,
+          "cantidad": 1,
+          "subtotal": 16000.0
+        }
+      ],
+      "precioTotal": 24000.0,
+      "dirreccion": "Calle 45 #23-18, Medellín"
+    },
+    {
+      "id": "3c9a6e15-8f4d-4b3a-9e77-2d3a4b5c6d03",
+      "usuarioId": "1",
+      "estado": "CANCELADO",
+      "metodoPago": "Tarjeta",
+      "productos": [
+        {
+          "nombreProducto": "Alitas BBQ",
+          "tipoProducto": "Comida",
+          "precioUnitario": 27000.0,
+          "cantidad": 1,
+          "subtotal": 27000.0
+        },
+        {
+          "nombreProducto": "Coca-Cola 400 ml",
+          "tipoProducto": "Bebida",
+          "precioUnitario": 6000.0,
+          "cantidad": 1,
+          "subtotal": 6000.0
+        },
+        {
+          "nombreProducto": "Aros de cebolla",
+          "tipoProducto": "Acompañamiento",
+          "precioUnitario": 10000.0,
+          "cantidad": 1,
+          "subtotal": 10000.0
+        }
+      ],
+      "precioTotal": 43000.0,
+      "dirreccion": "Av. 68 #22-45, Bogotá"
+    },
+    {
+      "id": "4d0b7f26-9a5e-4c4b-a088-3e4b5c6d7e04",
       "usuarioId": "3",
       "estado": "PENDIENTE",
       "metodoPago": "Nequi",
       "productos": [
         {
-          "nombreProducto": "Hamburguesa de aleta de tiburon (plato de prueba)",
-          "tipoProducto": "Comida",
-          "precioUnitario": 140000.0,
+          "nombreProducto": "Malteada de chocolate",
+          "tipoProducto": "Bebida",
+          "precioUnitario": 12000.0,
           "cantidad": 1,
-          "subtotal": 140000.0
+          "subtotal": 12000.0
+        },
+        {
+          "nombreProducto": "Jugo de lulo",
+          "tipoProducto": "Bebida",
+          "precioUnitario": 8000.0,
+          "cantidad": 1,
+          "subtotal": 8000.0
         }
       ],
-      "precioTotal": 140000.0
+      "precioTotal": 20000.0,
+      "dirreccion": "Transversal 78 #10-33, Cali"
     },
     {
-      "id": "f3919691-d32a-432b-bf9a-4de31ff2cb71",
+      "id": "5e1c8a37-0b6f-4d5c-b199-4f5c6d7e8f05",
       "usuarioId": "1",
       "estado": "PENDIENTE",
-      "metodoPago": "Nequi",
+      "metodoPago": "Tarjeta",
       "productos": [
         {
-          "nombreProducto": "Hamburguesa de aleta de tiburon (plato de prueba)",
+          "nombreProducto": "Hamburguesa doble queso",
           "tipoProducto": "Comida",
-          "precioUnitario": 140000.0,
+          "precioUnitario": 29000.0,
+          "cantidad": 2,
+          "subtotal": 58000.0
+        },
+        {
+          "nombreProducto": "Papas fritas",
+          "tipoProducto": "Acompañamiento",
+          "precioUnitario": 8000.0,
           "cantidad": 1,
-          "subtotal": 140000.0
+          "subtotal": 8000.0
+        },
+        {
+          "nombreProducto": "Té frío de durazno",
+          "tipoProducto": "Bebida",
+          "precioUnitario": 6500.0,
+          "cantidad": 2,
+          "subtotal": 13000.0
         }
       ],
-      "precioTotal": 140000.0
+      "precioTotal": 79000.0,
+      "dirreccion": "Calle 100 #15-20, Bogotá"
+    },
+    {
+      "id": "440d3558-324b-466d-b499-f1c703c0009c",
+      "usuarioId": "1",
+      "estado": "ENTREGADO",
+      "metodoPago": "Efectivo",
+      "productos": [
+        {
+          "nombreProducto": "Nuggets de pollo",
+          "tipoProducto": "Comida",
+          "precioUnitario": 19000.0,
+          "cantidad": 1,
+          "subtotal": 19000.0
+        },
+        {
+          "nombreProducto": "Hamburguesa doble queso",
+          "tipoProducto": "Comida",
+          "precioUnitario": 29000.0,
+          "cantidad": 1,
+          "subtotal": 29000.0
+        },
+        {
+          "nombreProducto": "Sándwich de pollo",
+          "tipoProducto": "Comida",
+          "precioUnitario": 21000.0,
+          "cantidad": 1,
+          "subtotal": 21000.0
+        }
+      ],
+      "precioTotal": 69000.0,
+      "dirreccion": "buenaventura",
+      "idRepartidor": "2"
     }
   ]
 }

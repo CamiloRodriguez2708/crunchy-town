@@ -35,11 +35,7 @@ public class Usuario extends Cuenta {
         getCarrito().quitar(producto);
     }
 
-    public void hacerPedido() {
-        throw new UnsupportedOperationException("Pendiente");
-    }
-
-    public void cancelarPedido() {
-        throw new UnsupportedOperationException("Pendiente");
+    public void cancelarPedido(Pedido pedido) {
+        pedido.setEstado("CANCELADO");
     }
 }

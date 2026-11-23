@@ -13,12 +13,12 @@ public class Administrador extends Cuenta {
         return "Administrador";
     }
 
-    public void aceptarPedido() {
-        throw new UnsupportedOperationException("Pendiente: depende de Pedido");
+    public void aceptarPedido(Pedido pedido) {
+        pedido.setEstado("ACEPTADO");
     }
 
-    public void denegarPedido() {
-        throw new UnsupportedOperationException("Pendiente: depende de Pedido");
+    public void denegarPedido(Pedido pedido) {
+        pedido.setEstado("DENEGADO");
     }
 
     public void agregarProducto(MenuService menu, Producto producto) {

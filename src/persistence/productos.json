@@ -43,9 +43,9 @@
   ],
   "bebidas": [
     {
-      "nombre": "Coca-Cola 400 ml",
-      "descripcion": "Bebida gaseosa bien fría.",
-      "precio": 6000.0
+      "nombre": "Coca-Cola 600 ml",
+      "descripcion": "Bebida gaseosa super fría.",
+      "precio": 5000.0
     },
     {
       "nombre": "Jugo de lulo",
@@ -56,11 +56,6 @@
       "nombre": "Limonada natural",
       "descripcion": "Limonada fresca endulzada al gusto.",
       "precio": 7000.0
-    },
-    {
-      "nombre": "Agua sin gas 600 ml",
-      "descripcion": "Botella de agua fría.",
-      "precio": 4000.0
     },
     {
       "nombre": "Malteada de chocolate",

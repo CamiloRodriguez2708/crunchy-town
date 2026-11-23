@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -11,7 +13,11 @@
         <Insets bottom="12.0" left="14.0" right="14.0" top="12.0" />
     </padding>
     <children>
-        <Label fx:id="lblIcono" alignment="CENTER" minHeight="62.0" minWidth="62.0" prefHeight="62.0" prefWidth="62.0" style="-fx-background-color: #ffbf47; -fx-background-radius: 16; -fx-font-family: 'Material Symbols Rounded'; -fx-font-size: 32px; -fx-text-fill: #30211e;" text="&#xEA61;" />
+      <AnchorPane maxHeight="62.0" maxWidth="62.0" minHeight="62.0" minWidth="62.0" prefHeight="62.0" prefWidth="62.0" style="-fx-background-color: #ffbf47; -fx-background-radius: 16;">
+         <children>
+            <ImageView fx:id="icono" fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
         <VBox spacing="3.0" HBox.hgrow="ALWAYS">
             <children>
                 <Label fx:id="lblNombre" style="-fx-font-family: 'Carlito'; -fx-font-size: 21px; -fx-font-weight: bold; -fx-text-fill: #30211e;" text="Nombre" />
@@ -24,6 +30,7 @@
                 </HBox>
             </children>
         </VBox>
-        <Button minHeight="44.0" minWidth="44.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="44.0" prefWidth="44.0" style="-fx-background-color: #d62828; -fx-background-radius: 14; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-cursor: hand;" text="X" />
+        <Button minHeight="44.0" minWidth="44.0" mnemonicParsing="false" onAction="#editar" prefHeight="44.0" prefWidth="92.0" style="-fx-background-color: #d62828; -fx-background-radius: 20; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-cursor: hand;" text="Editar" />
+      <Button minHeight="44.0" minWidth="44.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="44.0" prefWidth="44.0" style="-fx-background-color: #d62828; -fx-background-radius: 14; -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-cursor: hand;" text="X" />
     </children>
 </HBox>

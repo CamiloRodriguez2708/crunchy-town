@@ -14,7 +14,12 @@ public class Repartidor extends Cuenta {
         return "Repartidor";
     }
 
-    public void completarPedido() {
-        throw new UnsupportedOperationException("Pendiente: depende de Pedido");
+    public void llevarPedido(Pedido pedido){
+        pedido.setEstado("EN REPARTO");
+        pedido.setIdRepartidor(getId());
+    }
+
+    public void completarPedido(Pedido pedido) {
+        pedido.setEstado("ENTREGADO");
     }
 }

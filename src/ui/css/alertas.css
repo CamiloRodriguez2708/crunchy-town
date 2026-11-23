@@ -32,6 +32,16 @@
     -fx-background-color: #f0ab2e;
 }
 
+.alerta-info .text-field,
+.alerta-info .combo-box {
+    -fx-background-color: #fffdfa;
+    -fx-border-color: #eadfd7;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-family: 'Carlito';
+    -fx-font-size: 14px;
+}
+
 .alerta-titulo {
     -fx-font-family: 'Carlito';
     -fx-font-size: 17px;

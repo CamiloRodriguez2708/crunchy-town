@@ -34,6 +34,10 @@ public class CuentaService {
         return buscar(c -> c.getCorreo().equals(correo)) != null;
     }
 
+    public Cuenta buscarID(String id){
+        return buscar(c -> c.getId().equals(id));
+    }
+
     // Devuelve false si el correo ya está registrado
     public boolean agregar(Cuenta cuenta) {
         if (existeCorreo(cuenta.getCorreo())) {

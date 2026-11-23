@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="510.0" fitWidth="485.0" layoutX="38.0" layoutY="103.0">
                <image>
-                  <Image url="@../../utils/img.png" />
+                  <Image url="@../../utils/imagenes/img.png" />
                </image>
             </ImageView>
          </children>
@@ -49,7 +49,7 @@
       </Button>
       <ImageView fitHeight="33.0" fitWidth="417.0" layoutX="580.0" layoutY="582.0">
          <image>
-            <Image url="@../../utils/img_1.png" />
+            <Image url="@../../utils/imagenes/img_1.png" />
          </image>
       </ImageView>
       <Button layoutX="622.0" layoutY="517.0" mnemonicParsing="false" onAction="#crearCuenta" prefHeight="44.0" prefWidth="333.0" style="-fx-background-color: #d62828; -fx-background-radius: 15;" text="Crear cuenta" textFill="#fff8f0">

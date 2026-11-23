@@ -4,8 +4,9 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -81,10 +82,10 @@ public class CartViewController {
         fila.setMaxWidth(Double.MAX_VALUE);
         fila.setStyle("-fx-background-color: white; -fx-background-radius: 18;");
 
-        Label icono = new Label("🍗");
-        icono.setMinSize(54, 54);
-        icono.setAlignment(Pos.CENTER);
-        icono.setStyle("-fx-background-color: #ffbf47; -fx-background-radius: 15; -fx-font-size: 25px;");
+        ImageView imageView = new ImageView(iconoDe(producto.getTipo()));
+        imageView.setPreserveRatio(true);
+        imageView.setFitHeight(62);
+        imageView.setFitWidth(62);
 
         VBox datos = new VBox(5);
         Label nombre = new Label(producto.getNombre());
@@ -108,7 +109,7 @@ public class CartViewController {
             boton.setStyle("-fx-background-color: #fff0dc; -fx-background-radius: 12; -fx-font-size: 14px;");
         }
         quitar.setStyle("-fx-background-color: transparent; -fx-text-fill: #d62828; -fx-font-size: 13px;");
-        fila.getChildren().addAll(icono, datos, menos, cantidad, mas, quitar);
+        fila.getChildren().addAll(imageView, datos, menos, cantidad, mas, quitar);
         return fila;
     }
 
@@ -141,27 +142,56 @@ public class CartViewController {
             return;
         }
 
-        ChoiceDialog<String> dialogo = new ChoiceDialog<>("Efectivo", MetodoPagoFactory.getMetodosDisponibles());
-        dialogo.setTitle("Método de pago");
-        dialogo.setHeaderText("Selecciona cómo quieres pagar");
-        dialogo.setContentText("Método de pago:");
-        Optional<String> seleccionado = dialogo.showAndWait();
+        Optional<String> seleccionado = Alertas.elegirMetodoPago(
+                MetodoPagoFactory.getMetodosDisponibles());
         if (!seleccionado.isPresent()) {
+            return;
+        }
+
+        String direccionEntrega = solicitarDireccionEntrega();
+        if (direccionEntrega == null) {
             return;
         }
 
         try {
             MetodoPagoStrategy estrategia = MetodoPagoFactory.crear(seleccionado.get());
-            Pedido pedido = Main.getPedidoService().crearPedido(usuario, usuario.getCarrito(), estrategia);
-            Alertas.info("Pedido guardado correctamente.\n"
+            Pedido pedido = Main.getPedidoService().crearPedido(
+                    usuario, usuario.getCarrito(), estrategia, direccionEntrega);
+            Alertas.factura("Pedido guardado correctamente.\n"
                     + "Número: " + pedido.getId() + "\n"
                     + "Estado: " + pedido.getEstado() + "\n"
                     + "Método de pago: " + pedido.getMetodoPago() + "\n"
+                    + "Dirección de entrega: " + pedido.getDirreccion() + "\n"
                     + "Total: " + moneda.formatear(pedido.getPrecioTotal()));
             usuario.getCarrito().limpiar();
             Main.cambiarPantalla("/ui/fxml/UserView.fxml");
         } catch (RuntimeException e) {
             Alertas.error(e.getMessage() == null ? "No se pudo crear el pedido." : e.getMessage());
+        }
+    }
+
+    private Image iconoDe(String tipo) {
+        String archivo = switch (tipo) {
+            case "Comida" -> "Comida.png";
+            case "Bebida" -> "Bebida.png";
+            default -> "Acompanamiento.png";
+        };
+        return new Image(getClass().getResourceAsStream("/utils/imagenes/" + archivo));
+    }
+
+
+    private String solicitarDireccionEntrega() {
+        while (true) {
+            Optional<String> resultado = Alertas.solicitarDireccion();
+            if (!resultado.isPresent()) {
+                return null;
+            }
+
+            String direccion = resultado.get().trim();
+            if (!direccion.isEmpty()) {
+                return direccion;
+            }
+            Alertas.error("Ingresa una dirección para poder entregar el pedido.");
         }
     }
 

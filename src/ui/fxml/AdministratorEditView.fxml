@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="720.0" maxWidth="1080.0" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: #fff8f0;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.AdministratorEditViewController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="76.0" spacing="18.0" style="-fx-background-color: white; -fx-padding: 0 24 0 24;">
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../utils/imagenes/Imagen_pegada__2_-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Region HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#irAInicioSesion" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #d62828; -fx-text-fill: #fff8f0; -fx-background-radius: 15; -fx-font-family: 'Carlito'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand;" text="Cerrar Sesión" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+         <content>
+            <VBox alignment="TOP_CENTER" spacing="18.0">
+               <padding>
+                  <Insets bottom="30.0" left="32.0" right="32.0" top="26.0" />
+               </padding>
+               <children>
+                  <HBox alignment="TOP_CENTER" spacing="28.0">
+                     <children>
+                        <VBox maxWidth="640.0" prefWidth="640.0" spacing="22.0" style="-fx-background-color: white; -fx-background-radius: 24; -fx-padding: 32; -fx-effect: dropshadow(gaussian, rgba(48,33,30,0.12), 20, 0, 0, 8);">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#volverAlMenu" style="-fx-background-color: transparent; -fx-text-fill: #715e57; -fx-font-family: 'Carlito'; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 0; -fx-cursor: hand;" text="← Volver al menú" />
+                              <VBox spacing="4.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #30211e;" text="Nuevo producto" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 14px; -fx-fill: #715e57;" text="Completa los datos para agregarlo al menú." />
+                                 </children>
+                              </VBox>
+                              <GridPane hgap="18.0" vgap="12.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints percentWidth="50.0" />
+                                    <ColumnConstraints percentWidth="50.0" />
+                                 </columnConstraints>
+                                 <children>
+                                    <Label style="-fx-font-family: 'Carlito'; -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #715e57;" text="Nombre" />
+                                    <TextField fx:id="txtNombre" maxWidth="Infinity" onKeyReleased="#actualizarInfo" prefHeight="42.0" promptText="Ej: Hamburguesa clásica" style="-fx-background-color: #fffdfa; -fx-border-color: #eadfd7; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 8 12; -fx-font-family: 'Carlito'; -fx-font-size: 14px;" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                    <Label style="-fx-font-family: 'Carlito'; -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #715e57;" text="Precio" GridPane.columnIndex="1" />
+                                    <TextField fx:id="txtPrecio" maxWidth="Infinity" onKeyReleased="#actualizarInfo" prefHeight="42.0" promptText="Ej: 22000" style="-fx-background-color: #fffdfa; -fx-border-color: #eadfd7; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 8 12; -fx-font-family: 'Carlito'; -fx-font-size: 14px;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                    <Text fx:id="labUnidades" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 13px; -fx-font-weight: bold; -fx-fill: #715e57;" text="Unidades" GridPane.rowIndex="2" />
+                                    <TextField fx:id="txtUnidades" maxWidth="Infinity" onKeyReleased="#actualizarInfo" prefHeight="42.0" promptText="Ej: 6" style="-fx-background-color: #fffdfa; -fx-border-color: #eadfd7; -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 8 12; -fx-font-family: 'Carlito'; -fx-font-size: 14px;" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+                                    <Label style="-fx-font-family: 'Carlito'; -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #715e57;" text="Descripción" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                                    <TextArea fx:id="txtDescripcion" onKeyReleased="#actualizarInfo" prefHeight="110.0" promptText="Ej: Carne de res, queso cheddar, lechuga y tomate." style="-fx-background-color: #fffdfa; -fx-control-inner-background: #fffdfa; -fx-border-color: #eadfd7; -fx-border-radius: 12; -fx-background-radius: 12; -fx-font-family: 'Carlito'; -fx-font-size: 14px;" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
+                                    <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#guardarCambios" prefHeight="44.0" prefWidth="210.0" style="-fx-background-color: #d62828; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-family: 'Carlito'; -fx-font-size: 15px; -fx-font-weight: bold; -fx-cursor: hand;" text="Guardar cambios" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <rowConstraints>
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                    <RowConstraints />
+                                 </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                        <VBox maxWidth="320.0" prefWidth="320.0" spacing="18.0">
+                           <children>
+                              <VBox spacing="14.0" style="-fx-background-color: white; -fx-background-radius: 24; -fx-padding: 24; -fx-effect: dropshadow(gaussian, rgba(48,33,30,0.10), 18, 0, 0, 6);">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 16px; -fx-font-weight: bold; -fx-fill: #30211e;" text="Vista previa" />
+                                    <HBox alignment="CENTER_LEFT" spacing="14.0" style="-fx-background-color: #fff8f0; -fx-background-radius: 18; -fx-padding: 14;">
+                                       <children>
+                                          <AnchorPane maxHeight="62.0" maxWidth="62.0" minHeight="62.0" minWidth="62.0" prefHeight="62.0" prefWidth="62.0" style="-fx-background-color: #ffbf47; -fx-background-radius: 16;">
+                                             <children>
+                                                <ImageView fx:id="icono" fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" />
+                                             </children>
+                                          </AnchorPane>
+                                          <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label fx:id="lbNombre" style="-fx-font-family: 'Carlito'; -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #30211e;" text="Nombre del producto" wrapText="true" />
+                                                <Label fx:id="lbDescripcion" style="-fx-font-family: 'Carlito'; -fx-font-size: 12px; -fx-text-fill: #715e57;" text="Descripción breve del producto" wrapText="true" />
+                                                <Label fx:id="lbPrecio" style="-fx-font-family: 'Carlito'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #d62828;" text="\$ 0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 12px; -fx-fill: #715e57;" text="Así se verá tu producto en el menú." wrappingWidth="270.0" />
+                                 </children>
+                              </VBox>
+                              <VBox spacing="10.0" style="-fx-background-color: #fff0dc; -fx-background-radius: 20; -fx-padding: 20;">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 15px; -fx-font-weight: bold; -fx-fill: #30211e;" text="Consejos" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 12px; -fx-fill: #715e57;" text="• Usa nombres cortos y claros." wrappingWidth="260.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 12px; -fx-fill: #715e57;" text="• El precio se muestra en pesos colombianos." wrappingWidth="260.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 12px; -fx-fill: #715e57;" text="• Los acompañamientos permiten indicar unidades." wrappingWidth="260.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

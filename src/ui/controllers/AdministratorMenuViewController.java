@@ -11,6 +11,7 @@ import model.Producto;
 import service.Sesion;
 
 import java.util.List;
+import java.util.Locale;
 
 public class AdministratorMenuViewController {
 
@@ -34,19 +35,7 @@ public class AdministratorMenuViewController {
         List<Producto> temp = Main.getMenuService().getMenu();
 
         for (Producto p : temp){
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/fxml/TarjetaAdmin.fxml"));
-                Parent tarjeta = loader.load();
-
-                TarjetaAdminController controller = loader.getController();
-                controller.setProducto(p);
-
-                gestion.getChildren().add(tarjeta);
-                FlowPane.setMargin(tarjeta, new javafx.geometry.Insets(10));
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            mostrar(p);
         }
     }
 
@@ -56,21 +45,9 @@ public class AdministratorMenuViewController {
         List<Producto> temp = Main.getMenuService().getMenu();
 
         for (Producto p : temp){
-            if (p.getNombre().contains(txtBuscar.getText())) {
+            if (p.getNombre().toLowerCase(Locale.ROOT).contains(txtBuscar.getText().toLowerCase(Locale.ROOT))) {
                 if (cbFiltroTipo.getSelectionModel().getSelectedItem().toString().equals(p.getTipo()) || cbFiltroTipo.getSelectionModel().getSelectedItem().toString().equals("Todo") ){
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/fxml/TarjetaAdmin.fxml"));
-                    Parent tarjeta = loader.load();
-
-                    TarjetaAdminController controller = loader.getController();
-                    controller.setProducto(p);
-
-                    gestion.getChildren().add(tarjeta);
-                    FlowPane.setMargin(tarjeta, new javafx.geometry.Insets(10));
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                mostrar(p);
                 }
             }
         }
@@ -83,19 +60,7 @@ public class AdministratorMenuViewController {
         if (txtBuscar.equals("")) {
             for (Producto p : temp) {
                 if (cbFiltroTipo.getSelectionModel().getSelectedItem().toString().equals(p.getTipo()) || cbFiltroTipo.getSelectionModel().getSelectedItem().toString().equals("Todo")) {
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/fxml/TarjetaAdmin.fxml"));
-                        Parent tarjeta = loader.load();
-
-                        TarjetaAdminController controller = loader.getController();
-                        controller.setProducto(p);
-
-                        gestion.getChildren().add(tarjeta);
-                        FlowPane.setMargin(tarjeta, new javafx.geometry.Insets(10));
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                    mostrar(p);
                 }
             }
         }
@@ -103,6 +68,24 @@ public class AdministratorMenuViewController {
             filtrarNombres();
         }
     }
+
+    private void mostrar(Producto p){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/fxml/TarjetaAdmin.fxml"));
+            Parent tarjeta = loader.load();
+
+            TarjetaAdminController controller = loader.getController();
+            controller.setProducto(p);
+            controller.setAlEliminar(this::filtrarNombres);
+
+            gestion.getChildren().add(tarjeta);
+            FlowPane.setMargin(tarjeta, new javafx.geometry.Insets(10));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void irAInicioSesion() {
         Sesion.getInstancia().cerrar();
@@ -111,5 +94,10 @@ public class AdministratorMenuViewController {
     @FXML
     private void irACrear() {
         Main.cambiarPantalla("/ui/fxml/AdministratorView.fxml");
+    }
+
+    @FXML
+    private void irAPedidos() {
+        Main.cambiarPantalla("/ui/fxml/AdministratorPedidosView.fxml");
     }
 }

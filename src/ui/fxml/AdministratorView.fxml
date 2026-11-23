@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -24,16 +25,10 @@
          <children>
             <ImageView fitHeight="52.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../utils/Imagen_pegada__2_-removebg-preview.png" />
+                  <Image url="@../../utils/imagenes/Imagen_pegada__2_-removebg-preview.png" />
                </image>
             </ImageView>
             <Region HBox.hgrow="ALWAYS" />
-            <HBox alignment="CENTER" spacing="28.0">
-               <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 17px; -fx-font-weight: bold; -fx-fill: #d62828;" text="Menú" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 17px; -fx-fill: #30211e;" text="Pedidos" />
-               </children>
-            </HBox>
             <Region HBox.hgrow="ALWAYS" />
             <Button mnemonicParsing="false" onAction="#irAInicioSesion" prefHeight="36.0" prefWidth="150.0" style="-fx-background-color: #d62828; -fx-text-fill: #fff8f0; -fx-background-radius: 15; -fx-font-family: 'Carlito'; -fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand;" text="Cerrar Sesión" />
          </children>
@@ -99,7 +94,11 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Carlito'; -fx-font-size: 16px; -fx-font-weight: bold; -fx-fill: #30211e;" text="Vista previa" />
                                     <HBox alignment="CENTER_LEFT" spacing="14.0" style="-fx-background-color: #fff8f0; -fx-background-radius: 18; -fx-padding: 14;">
                                        <children>
-                                          <Label fx:id="lbIcono" alignment="CENTER" minHeight="54.0" minWidth="54.0" style="-fx-background-color: #ffbf47; -fx-background-radius: 14; -fx-font-family: 'Material Symbols Rounded'; -fx-font-size: 28px; -fx-text-fill: #30211e;" text="" />
+                                          <AnchorPane maxHeight="62.0" maxWidth="62.0" minHeight="62.0" minWidth="62.0" prefHeight="62.0" prefWidth="62.0" style="-fx-background-color: #ffbf47; -fx-background-radius: 16;">
+                                             <children>
+                                                <ImageView fx:id="icono" fitHeight="62.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true" />
+                                             </children>
+                                          </AnchorPane>
                                           <VBox spacing="4.0" HBox.hgrow="ALWAYS">
                                              <children>
                                                 <Label fx:id="lbNombre" style="-fx-font-family: 'Carlito'; -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #30211e;" text="Nombre del producto" wrapText="true" />

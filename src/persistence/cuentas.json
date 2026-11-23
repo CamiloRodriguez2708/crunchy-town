@@ -27,6 +27,12 @@
       "nombre": "Carlos",
       "correo": "Carlos@",
       "contrasena": "123"
+    },
+    {
+      "id": "4",
+      "nombre": "camilo",
+      "correo": "adsads@",
+      "contrasena": "231331"
     }
   ]
 }

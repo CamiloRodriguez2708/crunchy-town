@@ -1,9 +1,9 @@
 package model;
 
 public class Bebida implements Producto {
-    private final String nombre;
-    private final String descripcion;
-    private final double precio;
+    private  String nombre;
+    private  String descripcion;
+    private  double precio;
 
     public Bebida(String nombre, String descripcion, double precio) {
         this.nombre = nombre;
@@ -27,5 +27,20 @@ public class Bebida implements Producto {
     @Override
     public String toString() {
         return nombre + " - $" + precio;
+    }
+
+    public Bebida setNombre(String nombre) {
+        this.nombre = nombre;
+        return this;
+    }
+
+    public Bebida setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+        return this;
+    }
+
+    public Bebida setPrecio(double precio) {
+        this.precio = precio;
+        return this;
     }
 }
